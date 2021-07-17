@@ -80,7 +80,7 @@ namespace DasBlog.Web.Models.AdminViewModels
 		[Range(0, 100, ErrorMessage = "Enter a value between  0 and 100")]
 		public int ContentLookaheadDays { get; set; }
 
-		[DisplayName("Show 'Item Summary' in Aggregated Views")]
+		[DisplayName("Show 'Summary View' on home page")]
 		[Description("This allows you to design a summary view for each blog post on the home page")]
 		public bool ShowItemSummaryInAggregatedViews { get; set; }
 
@@ -252,7 +252,10 @@ namespace DasBlog.Web.Models.AdminViewModels
 		[DisplayName("SMTP user name")]
 		[Description("")]
 		public string SmtpUserName { get; set; }
-
+		
+		[DisplayName("From email, user name when blank")]
+		[Description("The from email address used for sending an email.  If this is blank, the SMTP User Name will be used.")]
+		public string SmtpFromEmail { get; set; }
 		[DisplayName("SMTP password")]
 		[Description("")]
 		[DataType(DataType.Password)]
@@ -282,9 +285,10 @@ namespace DasBlog.Web.Models.AdminViewModels
 		[Description("Help meet some of the EU General Data Protection Regulation (GDPR) requirements")]
 		public bool CookieConsentEnabled { get; set; }
 
-		[DisplayName("Double decode")]
+		[DisplayName("Default Sources (seperated by semi colon")]
 		[Description("")]
-		public bool EnableDoubleDecode { get; set; }
+		[StringLength(50, MinimumLength = 1, ErrorMessage = "{0} should be between 1 to 50 characters")]
+		public string DefaultSources { get; set; }
 
 		public bool EntryTitleAsLink { get; set; }
 		public bool ObfuscateEmail { get; set; }

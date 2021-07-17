@@ -236,6 +236,7 @@ namespace DasBlog.Services.ConfigFile.Interfaces
         bool EnableSmtpAuthentication { get; set; }
 
         string SmtpUserName { get; set; }
+        string SmtpFromEmail { get; set; }
 
         string SmtpPassword { get; set; }
 
@@ -346,9 +347,9 @@ namespace DasBlog.Services.ConfigFile.Interfaces
 
 		string SecurityStyleSources { get; set; }
 
-		bool CookieConsentEnabled { get; set; }
+		string DefaultSources { get; set; }
 
-		bool EnableDoubleDecode { get; set; }
+		bool CookieConsentEnabled { get; set; }
 
 		[XmlAnyElement]
         XmlElement[] anyElements { get; set; }
